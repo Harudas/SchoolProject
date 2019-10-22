@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "FormSelect";
+    Layout = null;
+}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.css'>
+    <style>
+        .Absolute-Center {
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+            .Absolute-Center.is-Responsive {
+                width: 50%;
+                height: 50%;
+                min-width: 200px;
+                max-width: 400px;
+                padding: 40px;
+            }
+
+        #heading {
+            margin: auto;
+            width: 180px;
+            height: 30px;
+            color: black;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="Absolute-Center is-Responsive">
+                <div class="col-sm-12 col-md-10 col-md-offset-1">
+                    <div id="heading">選擇填寫之申請表單</div><br>
+                    <form style="color:black;" method="post" action="">
+                        <label style="font-size: 18px">
+                            <input name="select" type="Radio" value="cwma">&nbsp;校園網頁建置、修改申請<br>
+                            <input name="select" type="Radio" value="webpcon">&nbsp;校務行政系統維護申請
+                        </label><br><br>
+                        <center>
+                            <button type="submit" class="btn btn-primary">確定</button>
+                        </center>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

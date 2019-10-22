@@ -1,0 +1,142 @@
+﻿@model WebApplication1.Models.Cwma
+
+@{
+    ViewBag.Title = "校園網頁建置、修改申請";
+}
+
+<script>
+        $(function () {
+            $("#elsetext").hide();
+
+            $("input[name='ApplicantMatter']").change(function () {
+                if (($("input[name='ApplicantMatter']:checked").val()) == '其他') {
+                    $("#elsetext").show();
+                }
+                else {
+                    $("#elsetext").hide();
+                }
+
+            });
+        });
+</script>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div style="text-align:center;font-family:DFKai-sb;font-size:20px;">
+        <div class="container">
+            <h2>
+                國立高雄科技大學<br>
+                校園網頁建置、修改申請
+            </h2>
+            <form class="needs-validation" method="POST" action="/Cwma/SentForm">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8 mb-3">
+                        <table class="table table-bordered">
+                            @*<div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label for="eid">員工編號</label>
+                                        <input name="eid" type="text" class="form-control" id="eid" placeholder="" value="" required>
+                                        <div class="invalid-feedback">
+                                            員工編號 必填
+                                        </div>
+                                    </div>
+                                </div>*@
+
+                            @*<div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label for="uid">員工單位編號</label>
+                                        <input name="uid" type="text" class="form-control" id="uid" placeholder="" value="" required>
+                                        <div class="invalid-feedback">
+                                            員工單位編號 必填
+                                        </div>
+                                    </div>
+                                </div>*@
+
+                            @*<div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label for="oid">流程編號</label>
+                                        <input name="oid" type="text" class="form-control" id="oid" placeholder="" value="" required>
+                                        <div class="invalid-feedback">
+                                            流程編號 必填
+                                        </div>
+                                    </div>
+                                </div>*@
+                            @*<label>申請單位</label>
+                                <input type="text" name="Department" class="form-control"><br>
+                                <label>申請人/分機</label>
+                                <input type="text" name="Applicant" class="form-control"><br>*@
+
+                            <tr>
+                                <td>申請日期</td>
+                                <td align="center"><input type="date" name="MyDate" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>刊登時間</td>
+                                <td align="center">
+                                    <input type="date" name="StartDay" class="form-control"><input type="time" name="Mytime1" class="form-control">
+                                    至
+                                    <input type="date" name="EndDay" class="form-control"><input type="time" name="Mytime2" class="form-control">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>目的</td>
+                                <td align="center"><input type="text" name="Purpose" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <td>申請事項</td>
+                                <td>協助事項</td>
+                            </tr>
+                            <tr align="center">
+                                <td>
+                                    <input name="ApplicantMatter" type="Radio" value="Banner(1004x300像素)">Banner(1004x300像素)<br>
+                                    <input name="ApplicantMatter" type="Radio" value="跑馬燈">跑馬燈<br>
+                                    <input name="ApplicantMatter" type="Radio" value="快速連結">快速連結<br>
+                                    <input name="ApplicantMatter" type="Radio" value="網頁內容">網頁內容<br>
+                                    <input name="ApplicantMatter" type="Radio" value="網頁版面">網頁版面<br>
+                                    <input name="ApplicantMatter" type="Radio" value="增建帳號">增建帳號<br>
+                                    <input name="ApplicantMatter" type="Radio" value="其他">其他
+                                    <input type="text" name="elsetext" class="form-control" id="elsetext">
+                                </td>
+                                <td>
+                                    <input name="AssistanceMatter" type="Radio" value="新增">新增<br>
+                                    <input name="AssistanceMatter" type="Radio" value="修改">修改<br>
+                                    <input name="AssistanceMatter" type="Radio" value="刪除">刪除
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">申請注意事項說明</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><textarea name="Description" style="width:400px;height:120px;"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">注意事項</td>
+                            </tr>
+                            <tr align="left">
+                                <td colspan="2">
+                                    1. 申請事項說明以簡單扼要為原則。
+                                    <br>
+                                    2. 申請單位應負刊登文字責任。
+                                    <br>
+                                    3. 相關檔案請寄到公務信箱banner：bcoffice01@nkust.edu.tw (請在刊登日前3天寄出)。
+                                    <br>
+                                    其他： chunting@nkust.edu.tw
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+                <button class="btn btn-primary" type="submit">送出</button>
+            </form>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

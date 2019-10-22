@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<html>
+<head>
+    <script>
+        $(function () {
+            $("#elsetext").hide();
+
+            $("input[name='AddFunction']").change(function () {
+                if (($("input[name='AddFunction']:checked").val()) == '其他') {
+                    $("#elsetext").show();
+                }
+                else {
+                    $("#elsetext").hide();
+                }
+
+            });
+        });
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>校務行政系統維護申請</title>
+
+</head>
+
+<body>
+    <div style="text-align:center;font-family:DFKai-sb;font-size:20px;">
+            <div class="container">
+                <h2>
+                    國立高雄科技大學<br>
+                    校務行政系統維護申請
+                </h2>
+                <br>
+                <form method="POST" action="/Webpcon/SentForm">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8 mb-3">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td colspan="1">申請日期</td>
+                                    <td colspan="3" align="center"><input type="date" name="MyDate" class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">說明-校務行政系統程式</td>
+                                </tr>
+                                <tr>
+                                    <td>編號</td>
+                                    <td align="center"><input type="text" name="Number" class="form-control"></td>
+                                    <td colspan="2">
+                                        <input name="Side" type="Radio" value="AP端">AP端&nbsp;
+                                        <input name="Side" type="Radio" value="Web端">Web端
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>系統</td>
+                                    <td align="center"><input type="text" name="System" class="form-control"></td>
+                                    <td>模組</td>
+                                    <td align="center"><input type="text" name="Module" class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="1">作業/功能項目</td>
+                                    <td colspan="3" align="center"><input type="text" name="Project" class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <input name="FProject" type="Radio" value="錯誤修正">錯誤修正
+                                        <input name="FProject" type="Radio" value="變更">變更
+                                        <input name="FProject" type="Radio" value="跨部協調">跨部協調
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>新增功能</td>
+                                    <td colspan="3" align="center">
+                                        <input name="AddFunction" type="Radio" value="功能增修">功能增修<br>
+                                        <input name="AddFunction" type="Radio" value="法規規定變更">法規規定變更<br>
+                                        <input name="AddFunction" type="Radio" value="重大事項協調或行政會議決議">重大事項協調或行政會議決議<br>
+                                        <input name="AddFunction" type="Radio" value="其他" id="else">其他
+                                        <input type="text" name="elsetext" class="form-control" id="elsetext">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">詳細描述</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4"><textarea name="Description" style="width:400px;height:120px;"></textarea></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">送出</button>
+                </form>
+            </div>
+        </div>
+</body>
+</html>
+
